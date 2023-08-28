@@ -141,18 +141,18 @@ void graphField(int graph_x, int graph_y, int racket1_y, int racket2_y) {
 }
 
 int checkBorderlineY(int graph_y) {
+    int flag = 0;
     if (graph_y == 24 || graph_y == 0) {
-        return 1;
-    } else
-        return 0;
+        flag = 1;
+    return flag;
 }
 
 int checkRacket(int graph_x, int graph_y, int racket_y) {
+    int flag = 0;
     if (((graph_x == 2) || (graph_x == 77)) &&
         ((graph_y == racket_y) || (graph_y == racket_y + 1) || (graph_y == racket_y - 1)))
-        return 1;
-    else
-        return 0;
+        flag = 1;
+    return flag;
 }
 
 int readButton(int racket1_y, int racket2_y) {
