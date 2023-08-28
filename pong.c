@@ -4,7 +4,7 @@
 #define field_y 25
 #define racket1_x 2
 #define racket2_x 77
-#define win_condition
+#define WIN_CONDITION 21
 
 void graphField(int graph_x, int graph_y, int racket1_y, int racket2_y);
 int graphPoint(float x, float y);
@@ -61,7 +61,7 @@ int main() {
         }
         graphScore(player_1, player_2);
         graphField(graph_x, graph_y, racket1_y, racket2_y);
-        if (player_1 == win_condition || player_2 == win_condition) {
+        if (player_1 == WIN_CONDITION || player_2 == WIN_CONDITION) {
             graphWin(player_1);
             break;
         }
@@ -222,7 +222,7 @@ void graphScore(int pl1, int pl2) {
 }
 
 void graphWin(int player_1) {
-    if (player_1 == win_condition) {
+    if (player_1 == WIN_CONDITION) {
         printf("  ____    _                                   _                _                \n");
         printf(" |  _ \\  | |   __ _   _   _    ___   _ __    / |   __      __ (_)  _ __    ___  \n");
         printf(" | |_) | | |  / _` | | | | |  / _ \\ | '__|   | |   \\ \\ /\\ / / | | | '_ \\  / __| \n");
