@@ -1,9 +1,9 @@
 #include <math.h>
 #include <stdio.h>
-#define field_x 80
-#define field_y 25
-#define racket1_x 2
-#define racket2_x 77
+#define FIELD_X 80
+#define FIELD_Y 25
+#define RACKET1_X 2
+#define RACKET2_X 77
 #define WIN_CONDITION 21
 
 void graphField(int graph_x, int graph_y, int racket1_y, int racket2_y);
@@ -20,8 +20,8 @@ void graphScore(int pl1, int pl2);
 void graphWin(int player_1);
 
 int main() {
-    float x = field_x / 2;
-    float y = field_y / 2 - 6;
+    float x = FIELD_X / 2;
+    float y = FIELD_Y / 2 - 6;
     float kx = 1;
     float ky = 1;
     int graph_x = x;
@@ -109,12 +109,12 @@ int graphPoint(float x, float y) {
 void graphField(int graph_x, int graph_y, int racket1_y, int racket2_y) {
     char ball = '@';
     for (int i = 24; i >= 0; i--) {
-        for (int j = 0; j < field_x; j++) {
+        for (int j = 0; j < FIELD_X; j++) {
             if (i == graph_y && j == graph_x) {
                 printf("%c", ball);
-            } else if (i == 0 || i == field_y - 1) {
+            } else if (i == 0 || i == FIELD_Y - 1) {
                 printf("-");
-            } else if (j == 0 || j == field_x - 1 || j == field_x / 2) {
+            } else if (j == 0 || j == FIELD_X - 1 || j == FIELD_X / 2) {
                 printf("|");
             } else if ((j == 2) && (i == racket1_y || i == racket1_y - 1 || i == racket1_y + 1)) {
                 printf("]");
@@ -197,18 +197,18 @@ int move_racket2_down(int racket2_y) {
 
 void graphScore(int pl1, int pl2) {
     for (int i = 0; i <= 6; i++) {
-        for (int j = 0; j < field_x; j++) {
+        for (int j = 0; j < FIELD_X; j++) {
             if (i == 0) {
                 printf("-");
-            } else if ((j == 0 || j == field_x / 2 || j == field_x - 1) && (i != 3 && i != 4)) {
+            } else if ((j == 0 || j == FIELD_X / 2 || j == FIELD_X - 1) && (i != 3 && i != 4)) {
                 printf("|");
-            } else if ((i == 3 && (j == field_x / 2 - 8 || j == 0 || j == field_x - 17))) {
+            } else if ((i == 3 && (j == FIELD_X / 2 - 8 || j == 0 || j == FIELD_X - 17))) {
                 printf("|");
             } else if (i == 3 && j == 16) {
                 printf("Player 1:");
             } else if (i == 3 && j == 47) {
                 printf("Player 2:");
-            } else if ((i == 4 && (j == field_x / 2 - 1 || j == 0 || j == field_x - 3))) {
+            } else if ((i == 4 && (j == FIELD_X / 2 - 1 || j == 0 || j == FIELD_X - 3))) {
                 printf("|");
             } else if (i == 4 && j == 19) {
                 printf("%02d", pl1);
